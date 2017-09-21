@@ -3,8 +3,17 @@ body {
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+form {
+	max-width:500px;
+	margin: 0 auto;
+}
+
 a {
 	color: #00B7FF;
+}
+
+.row {
+	margin: 15px 15px;
 }
 
 @media (min-width: 952px) {

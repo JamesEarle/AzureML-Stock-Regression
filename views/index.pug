@@ -1,5 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h2 Predict Stock Prices
+  p.lead.
+    This tool is not necessarily going to make you money. Simply put, it is a forecasting tool that will provide insights based 
+    off of the Azure Machine Learning model I trained. This model predicts the days closing price based on it's open, high, and low 
+    values. The stock data is acquired using the free <a href="#">AlphaVantage API</a>. The model has been trained on a variety of 
+    stock information to provide a more general assessment of stock market behaviour rather than a particular stock.
+  
+  .text-left
+    form(action="submit" method="POST")
+      .form-group
+        label(for="symbol") Stock Symbol
+        input(type="text" placeholder="e.g. MSFT" maxlength="6").form-control#symbol
+      .text-center
+        button(type="submit").btn.btn-primary Submit

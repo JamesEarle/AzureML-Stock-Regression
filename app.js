@@ -15,8 +15,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', function (req, res) {
-	res.render('index', {title: "MyAppwww"});
+app.get('/', function (req, res) {
+	res.render('index');
 });
 
 // catch 404 and forward to error handler
