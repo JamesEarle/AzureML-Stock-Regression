@@ -1,0 +1,26 @@
+{
+  "name": "azureml-stock-regression",
+  "version": "1.0.0",
+  "description": "AzureML regression model using stock prices to predict daily close.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamesEarle/AzureML-Stock-Regression.git"
+  },
+  "author": "James Earle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JamesEarle/AzureML-Stock-Regression/issues"
+  },
+  "homepage": "https://github.com/JamesEarle/AzureML-Stock-Regression#readme",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "pug": "^2.0.0-rc.4"
+  }
+}
