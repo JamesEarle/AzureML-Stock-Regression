@@ -4,15 +4,19 @@ html
     title AzureML Stock Price Predictor
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
     script(src="/javascripts/bootstrap.min.js")
   body
-  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+  nav.navbar.navbar-dark.bg-dark.fixed-top
     .container
       a.navbar-brand(href="#") AzureML Stock Price Predictor
-      ul.navbar-nav.ml-auto
+      ul.navbar-nav
         li.nav-item.active
           a.nav-link(href="#") About
   .container
     .row
       .col-lg-12.text-center
         block content
+  footer.footer
+    .container
+      span.text-muted &copy; James Earle 2017

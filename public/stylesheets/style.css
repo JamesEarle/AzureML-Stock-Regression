@@ -1,5 +1,5 @@
 body {
-	padding: 54px;
+	padding: 54px 0px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -16,8 +16,17 @@ a {
 	margin: 15px 15px;
 }
 
+.footer {
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+}
+
 @media (min-width: 952px) {
 	body {
-		padding: 56px;
+		padding: 56px 0px;
 	}
 }
