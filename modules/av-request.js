@@ -36,3 +36,7 @@ exports.makeRequest = (symbol) => {
         return result;
     });
 }
+
+exports.getTodaysValues = (body) => {
+    console.log("ya a body here broh");
+}
