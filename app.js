@@ -1,9 +1,9 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+var av = require('./modules/av-request')
+var aml = require('./modules/aml-request')
 
 var app = express();
 
@@ -17,6 +17,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
 	res.render('index');
+});
+
+app.post('/submit', function(req, res) {
+	let result = av.makeRequest(req.body.symbol);
+	result.then((body) => {
+		console.log(body);
+		res.render('index', {
+			body: body
+		});
+	});
 });
 
 // catch 404 and forward to error handler

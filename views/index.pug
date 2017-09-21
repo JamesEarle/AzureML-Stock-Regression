@@ -12,6 +12,9 @@ block content
     form(action="submit" method="POST")
       .form-group
         label(for="symbol") Stock Symbol
-        input(type="text" placeholder="e.g. MSFT" maxlength="6").form-control#symbol
+        input(type="text" placeholder="e.g. MSFT" maxlength="6" name="symbol").form-control#symbol
       .text-center
         button(type="submit").btn.btn-primary Submit
+    hr
+    if body
+      p= body
