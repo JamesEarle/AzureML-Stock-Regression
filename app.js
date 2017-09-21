@@ -22,9 +22,9 @@ app.get('/', function (req, res) {
 app.post('/submit', function(req, res) {
 	let result = av.makeRequest(req.body.symbol);
 	result.then((body) => {
-		av.getTodaysValues(JSON.parse(body));
+		let obj = av.getTodaysValues(JSON.parse(body));
 		res.render('index', {
-			body: body
+			body: JSON.stringify(obj)
 		});
 	});
 });

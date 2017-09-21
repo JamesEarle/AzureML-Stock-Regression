@@ -37,6 +37,23 @@ exports.makeRequest = (symbol) => {
     });
 }
 
-exports.getTodaysValues = (body) => {
-    console.log("ya a body here broh");
+exports.getTodaysValues = (json) => {
+    result = json["Time Series (Daily)"];
+    
+    if(!result) return undefined;
+
+    let date = new Date();
+    let dayOfMonth = date.getDate().toString().length == 2 ? date.getDate() : "0" + date.getDate().toString();
+    let month = date.getMonth().toString().length == 2 ? date.getMonth() : "0" + (date.getMonth() + 1).toString();
+    let formattedDate = date.getFullYear() + "-" + month + "-" + dayOfMonth;
+
+    let today = result[formattedDate];
+
+    let obj = {
+        "open"  : today["1. open"],
+        "high"  : today["2. high"],
+        "low"   : today["3. low"],
+        "volume": today["5. volume"]
+    }
+    return obj;
 }
