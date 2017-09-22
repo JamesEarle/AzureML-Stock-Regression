@@ -1,27 +1,13 @@
 let req = require("request"); 
 let priv = require('../private/index');
 
-let key = priv.apiKey;
-let uri;
-
-// exports.symbol = "";
-
-let p = new Promise((resolve, reject) => {
-    // console.log(uri);
-    // req.get(uri, (err, res, body) => {
-    //     if (!err && res.statusCode == 200) {
-    //         resolve(body);
-    //     } else {
-    //         reject(res.statusCode)
-    //     }
-    // }); 
-});
+let key = priv.avApiKey;
+let uri; //not used?
 
 let promiseFunction = (uri) => {
     return new Promise((resolve, reject) => {
         req.get(uri, (err, res, body) => {
             if (!err && res.statusCode == 200) {
-                // console.log(body.substring(0, 500));
                 resolve(body);
             } else {
                 reject(res.statusCode);
@@ -53,6 +39,7 @@ exports.getTodaysValues = (json) => {
         "open"  : today["1. open"],
         "high"  : today["2. high"],
         "low"   : today["3. low"],
+        "close" : today["4. close"],
         "volume": today["5. volume"]
     }
     return obj;

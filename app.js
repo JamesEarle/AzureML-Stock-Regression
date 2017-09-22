@@ -20,11 +20,15 @@ app.get('/', function (req, res) {
 });
 
 app.post('/submit', function(req, res) {
-	let result = av.makeRequest(req.body.symbol);
-	result.then((body) => {
-		let obj = av.getTodaysValues(JSON.parse(body));
-		res.render('index', {
-			body: JSON.stringify(obj)
+	let result = av.makeRequest(req.body.symbol.toUpperCase());
+	result.then(body => {
+		let vals = av.getTodaysValues(JSON.parse(body));
+		vals = aml.makeRequest(vals);
+		
+		vals.then(body => {
+			res.render('index', {
+				body: JSON.stringify(body)
+			});
 		});
 	});
 });
