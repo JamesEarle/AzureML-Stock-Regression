@@ -16,5 +16,16 @@ block content
       .text-center
         button(type="submit").btn.btn-primary Submit
     hr
-    if body
-      p= body
+    if open
+      ul
+        mixin list(title, val)
+          li
+            h4= title
+            p= val
+        +list("Open", open)
+        +list("High", high)
+        +list("Low", low)
+        +list("Volume", volume)
+        +list("Close (Actual)", close)
+        +list("Close (Predicted)", slm)
+        +list("Std. Deviation of Model", slsd)

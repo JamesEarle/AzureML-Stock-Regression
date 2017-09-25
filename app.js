@@ -26,8 +26,21 @@ app.post('/submit', function(req, res) {
 		vals = aml.makeRequest(vals);
 		
 		vals.then(body => {
+			body = JSON.parse(body)["Results"]["output1"][0];
+
+			let del = body["volume"];
+			let del1 = body["Scored Label Mean"];
+			let del2 = body["Scored Label Standard Deviation"];
+
 			res.render('index', {
-				body: JSON.stringify(body)
+				open: body["open"],
+				high: body["high"],
+				low: body["low"],
+				close: body["close"],
+				volume: body["volume"],
+				slm: body["Scored Label Mean"],
+				slsd: body["Scored Label Standard Deviation"]
+				// body: JSON.stringify(body)
 			});
 		});
 	});

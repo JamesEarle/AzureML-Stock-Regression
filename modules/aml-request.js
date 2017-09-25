@@ -22,12 +22,6 @@ exports.makeRequest = (vals) => {
                 "input1":
                 [ 
                     {
-                        // 'timestamp': "",   
-                        // 'open': "74.83",   
-                        // 'high': "75.39",   
-                        // 'low': "74.07",   
-                        // 'close': "75.31",   
-                        // 'volume': "37901927" 
                         'timestamp': "",   
                         'open'  : vals['open'],   
                         'high'  : vals['high'],   
