@@ -17,15 +17,15 @@ block content
         button(type="submit").btn.btn-primary Submit
     hr
     if open
-      ul
+      ul.results
         mixin list(title, val)
           li
-            h4= title
-            p= val
+            h4 #{title}: #{val}
         +list("Open", open)
         +list("High", high)
         +list("Low", low)
         +list("Volume", volume)
         +list("Close (Actual)", close)
         +list("Close (Predicted)", slm)
-        +list("Std. Deviation of Model", slsd)
+        +list("Std. Deviation of Prediction", slsd)
+        +list("Score within 1 Std. Deviation?", eval)

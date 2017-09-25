@@ -20,6 +20,8 @@ exports.makeRequest = (symbol) => {
     uri = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + symbol + "&apikey=" + key;
     return promiseFunction(uri).then(result => {
         return result;
+    }).catch(status => {
+        return status;
     });
 }
 

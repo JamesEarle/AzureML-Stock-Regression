@@ -27,10 +27,9 @@ app.post('/submit', function(req, res) {
 		
 		vals.then(body => {
 			body = JSON.parse(body)["Results"]["output1"][0];
-
-			let del = body["volume"];
-			let del1 = body["Scored Label Mean"];
-			let del2 = body["Scored Label Standard Deviation"];
+			
+			eval = Math.abs(body["Scored Label Mean"] - body["close"]) < body["Scored Label Standard Deviation"];
+			eval = eval ? "Yes" : "No";
 
 			res.render('index', {
 				open: body["open"],
@@ -39,8 +38,8 @@ app.post('/submit', function(req, res) {
 				close: body["close"],
 				volume: body["volume"],
 				slm: body["Scored Label Mean"],
-				slsd: body["Scored Label Standard Deviation"]
-				// body: JSON.stringify(body)
+				slsd: body["Scored Label Standard Deviation"],
+				eval: eval
 			});
 		});
 	});
