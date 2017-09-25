@@ -5,9 +5,8 @@ block content
   p.lead.
     This tool is not necessarily going to make you money. Simply put, it is a forecasting tool that will provide insights based 
     off of the Azure Machine Learning model I trained. This model predicts the days closing price based on it's open, high, and low 
-    values. The stock data is acquired using the free <a href="#">AlphaVantage API</a>. The model has been trained on a variety of 
+    values. The stock data is acquired using the free <a href="https://www.alphavantage.co/">AlphaVantage API</a>. The model has been trained on a variety of 
     stock information to provide a more general assessment of stock market behaviour rather than a particular stock.
-  
   .text-left
     form(action="submit" method="POST")
       .form-group
@@ -17,6 +16,7 @@ block content
         button(type="submit").btn.btn-primary Submit
     hr
     if open
+      h3.title #{symbol} Prediction - #{date}
       ul.results
         mixin list(title, val)
           li
@@ -28,4 +28,4 @@ block content
         +list("Close (Actual)", close)
         +list("Close (Predicted)", slm)
         +list("Std. Deviation of Prediction", slsd)
-        +list("Score within 1 Std. Deviation?", eval)
+        +list("Score within 1 Std. Deviation", eval)

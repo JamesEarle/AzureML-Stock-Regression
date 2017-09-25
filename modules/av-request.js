@@ -19,7 +19,10 @@ let promiseFunction = (uri) => {
 exports.makeRequest = (symbol) => {
     uri = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + symbol + "&apikey=" + key;
     return promiseFunction(uri).then(result => {
-        return result;
+        return {
+            "result": result,
+            "symbol": symbol
+        }
     }).catch(status => {
         return status;
     });
@@ -38,11 +41,14 @@ exports.getTodaysValues = (json) => {
     let today = result[formattedDate];
 
     let obj = {
-        "open"  : today["1. open"],
-        "high"  : today["2. high"],
-        "low"   : today["3. low"],
-        "close" : today["4. close"],
-        "volume": today["5. volume"]
+        "date" : formattedDate,
+        "vals" : {
+            "open"  : today["1. open"],
+            "high"  : today["2. high"],
+            "low"   : today["3. low"],
+            "close" : today["4. close"],
+            "volume": today["5. volume"]
+        }
     }
     return obj;
 }

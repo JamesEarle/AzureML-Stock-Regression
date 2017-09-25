@@ -14,6 +14,11 @@ a {
 
 ul.results {
 	margin-left: 50px;
+	list-style: none;
+}
+
+h3.title {
+	margin-left: 30px;
 }
 
 .row {
