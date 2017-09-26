@@ -19,24 +19,21 @@ app.get('/', function (req, res) {
 	res.render('index');
 });
 
-app.post('/submit', function(req, res) {
+app.post('/submit', function (req, res) {
 	let result = av.makeRequest(req.body.symbol.toUpperCase());
-	// let symbol = obj["symbol"];
-	// let result = obj["result"];
 
 	result.then(body => {
 		let obj = av.getTodaysValues(JSON.parse(body["result"]));
 		let symbol = body["symbol"];
 		let date = obj["date"];
 		let vals = aml.makeRequest(obj["vals"]);
-		
+
 		vals.then(body => {
 			body = JSON.parse(body)["Results"]["output1"][0];
-			
+
 			eval = Math.abs(body["Scored Label Mean"] - body["close"]) < body["Scored Label Standard Deviation"];
 			eval = eval ? "Yes" : "No";
 
-			// Add symbol name and date to output
 			res.render('index', {
 				open: body["open"],
 				high: body["high"],

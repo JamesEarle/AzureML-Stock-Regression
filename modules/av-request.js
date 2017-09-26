@@ -1,8 +1,8 @@
-let req = require("request"); 
+let req = require("request");
 let priv = require('../private/index');
 
 let key = priv.avApiKey;
-let uri; //not used?
+let uri;
 
 let promiseFunction = (uri) => {
     return new Promise((resolve, reject) => {
@@ -12,7 +12,7 @@ let promiseFunction = (uri) => {
             } else {
                 reject(res.statusCode);
             }
-        }); 
+        });
     })
 }
 
@@ -30,8 +30,8 @@ exports.makeRequest = (symbol) => {
 
 exports.getTodaysValues = (json) => {
     result = json["Time Series (Daily)"];
-    
-    if(!result) return undefined;
+
+    if (!result) return undefined;
 
     let date = new Date();
     let dayOfMonth = date.getDate().toString().length == 2 ? date.getDate() : "0" + date.getDate().toString();
@@ -41,12 +41,12 @@ exports.getTodaysValues = (json) => {
     let today = result[formattedDate];
 
     let obj = {
-        "date" : formattedDate,
-        "vals" : {
-            "open"  : today["1. open"],
-            "high"  : today["2. high"],
-            "low"   : today["3. low"],
-            "close" : today["4. close"],
+        "date": formattedDate,
+        "vals": {
+            "open": today["1. open"],
+            "high": today["2. high"],
+            "low": today["3. low"],
+            "close": today["4. close"],
             "volume": today["5. volume"]
         }
     }
